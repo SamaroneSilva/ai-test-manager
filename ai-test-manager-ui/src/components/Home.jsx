@@ -60,7 +60,7 @@ export default function Home() {
         {/* Cabeçalho */}
         <header className="flex items-center justify-between mb-8">
           <div className="flex flex-col items-center gap-3">
-            <img src={logo} alt="Logo" className="w-40 h-40 object-contain" />
+            <img src={logo} alt="Logo" className="w-90 h-90 object-contain" />
           </div>
         </header>
 
