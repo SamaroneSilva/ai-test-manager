@@ -58,9 +58,9 @@ export default function Home() {
       {/* Conteúdo central */}
       <div className="relative z-10 w-full max-w-4xl mx-6">
         {/* Cabeçalho */}
-        <header className="flex items-center justify-between mb-8">
+        <header className="flex items-center justify-center mb-8">
           <div className="flex flex-col items-center gap-3">
-            <img src={logo} alt="Logo" className="w-90 h-90 object-contain" />
+            <img src={logo} alt="Logo" className="w-70 h-70 object-contain" />
           </div>
         </header>
 
