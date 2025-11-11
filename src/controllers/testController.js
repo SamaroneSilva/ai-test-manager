@@ -1,18 +1,23 @@
-import { createTestsFromUserStory } from "../services/testService.js";
+import Test from "../models/Test.js";
 
-export const generateTests = (req, res) => {
-  const { userStory } = req.body;
-
-  if (!userStory) {
-    return res.status(400).json({ error: "O campo 'userStory' é obrigatório." });
+// GET - listar todos os testes
+export const getAllTests = async (req, res) => {
+  try {
+    const tests = await Test.find();
+    res.json(tests);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao buscar testes", error });
   }
+};
 
-  const tests = createTestsFromUserStory(userStory);
-
-  res.status(200).json({
-    userStory,
-    generatedAt: new Date(),
-    totalTests: tests.length,
-    tests
-  });
+// POST - criar novo teste
+export const createTest = async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const newTest = new Test({ title, description });
+    await newTest.save();
+    res.status(201).json(newTest);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao criar teste", error });
+  }
 };
